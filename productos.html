@@ -1,0 +1,216 @@
+
+<!-- FILE: productos.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panadería Delicias del Trigo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  
+      body {
+      font-family: Inter, system-ui, Arial;
+      margin: 0;
+      color: #222;
+      background-image: url("IMG/FONDO_PANADERIA.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+     body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: brightness(0.55);
+      z-index: -1;
+    }
+    
+	a.logo {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 22px;
+    }
+	
+    header{background:#fff;border-bottom:1px solid #eee}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .product{background:#fff;border:1px solid #eee;padding:14px;border-radius:10px}
+    .product img{width:100%;height:170px;object-fit:cover;border-radius:8px}
+    .price{font-weight:700;color:#111}
+    .cart{position:fixed;right:18px;top:80px;background:#fff;border:1px solid #eee;padding:12px;border-radius:10px;width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+    .cart h3{margin:0 0 8px}
+    .cart-list{max-height:300px;overflow:auto}
+    .cart-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #f0f0f0}
+    .btn{padding:8px 12px;border-radius:8px;text-decoration:none;background:#6b8e23;color:#fff;border:none;cursor:pointer}
+    .btn.secondary{background:#444}
+    .empty{color:#666;font-size:14px}
+	
+	
+	
+	.card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eee;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+	
+	nav a{
+      text-decoration: none;
+      margin-left: 8px;
+      color:#8B4513;
+      font-weight: 600;
+    }
+
+	
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center">
+      <a href="index.html" class="logo" style="font-weight:700;color:#8B4513;text-decoration:none">Panadería Delicias del Trigo</a>
+      <nav class="navlinks" style="margin-left:auto">
+        <a href="index.html">  Inicio  </a>
+        <a href="productos.html">  Productos  </a>
+        <a href="contacto.html">  Contáctanos  </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+   <div class="card">
+    <h1>Nuestros productos</h1>
+    <p style="color:#666">Selecciona los prodcutos y agrégalos al carrito. El carrito guarda los productos en tu navegador.</p>
+	</div>
+ 
+ 
+    <section class="grid" id="productGrid"></section>
+
+    <!-- Cart panel -->
+    <aside class="cart" id="cartPanel">
+      <h3>Carrito de compra</h3>
+      <div class="cart-list" id="cartList"></div>
+      <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
+        <strong>Total: <span id="cartTotal">$0.</span></strong>
+        <button id="clearCart" class="btn secondary">Vaciar</button>
+      </div>
+      <div style="margin-top:8px;text-align:right">
+        <button id="checkout" class="btn">Finalizar</button>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // Productos
+    const productos = [
+      {id:1,nombre:'Croissant',precio:3990,descripcion:'El ‘croissant’, un producto consumido mundialmente, de origen austriaco y etimología francesa.',img:'img/croissant.jpg'},
+	  {id:2,nombre:'Roscón',precio:3000,descripcion:'El roscón es un dulce lleno de magia. Porque nos traslada de un solo bocado a nuestra infancia..',img:'img/roscon.jpg'},
+      {id:3,nombre:'Baggete',precio:6000,descripcion:'La baguette es un icónico pan francés, reconocido por su forma alargada y delgada, su corteza crujiente y dorada, y su miga suave y aireada.',img:'img/baguette.jpeg'},
+      {id:4,nombre:'Rollos de canela',precio:5000.00,descripcion:'Su origen viene de países como Dinamarca y Suecia de principios del siglo XX, son deliciosos y muy elegantes.',img:'img/rolloscanela.jpg'},
+      {id:5,nombre:'Galletas de chocolate',precio:4000,descripcion:'las primeras galletas con chispas de chocolate se originaron en los Estados Unidos a principios del siglo XX,una vez que disfrutes de una galleta con chispas de chocolate, recuerda tu niñez.',img:'img/galletachoco.jpg'},
+	  {id:6,nombre:'Pan integra',precio:7000,descripcion:'La mejor delicia artesanal que genera conciencia sobre la alimentación saludable.',img:'img/panintegral.jpg'},
+	  {id:7,nombre:'Pan hojaldre',precio:1000,descripcion:'El pan rollo hojaldrado es un tipo de pan popular, especialmente en Colombia, conocido por su textura crujiente por fuera y suave y esponjosa por dentro, recuerda tu infancia en casa de la abuela.',img:'img/panhojaldre.jpeg'},
+	  {id:8,nombre:'Pan rollo',precio:1000,descripcion:'El pan rollo hojaldrado es un tipo de pan popular, especialmente en Colombia, conocido por su textura crujiente por fuera y suave y esponjosa por dentro.',img:'img/panrollo.jpg'},
+	  {id:9,nombre:'Pasabocas',precio:3500,descripcion:'Fue L’art de la cuisine française, quién reglamentó el número de pliegues ideal para que el hojaldre fuera perfecto, en América se adaptó incluyendo el dulce de guallaba, dando lugar a los pasabocas de hojaldre que se conocen en la actualidad.',img:'img/pasabocas.jpg'},	 
+      {id:10,nombre:'Pastel Gloria',precio:4500,descripcion:' pasteles Gloria, tienen un origen en Bogotá en 1950 cuando una pareja paisa, Lucia y Francisco Mejía, introdujo la receta tradicional de Medellín. El nombre "Gloria" se dice que proviene de la sensación de "ir al cielo" al probarlo.',img:'img/Pastelgloria.jpg'}];
+
+    // Utilidades de formato
+    function formatPrice(v){ return '$' + v.toFixed(2); }
+
+    // Render productos
+    const grid = document.getElementById('productGrid');
+    productos.forEach(p => {
+      const div = document.createElement('div'); div.className='product card';
+      div.innerHTML = `
+        <img src="${p.img}" alt="${p.nombre}">
+        <h3>${p.nombre}</h3>
+        <p style="color:#666">${p.descripcion}</p>
+        <p class="price">${formatPrice(p.precio)}</p>
+        <button class="btn" data-id="${p.id}">Agregar al carrito</button>
+      `;
+      grid.appendChild(div);
+    });
+
+    // Cart management using localStorage
+    const CART_KEY = 'verdeauracart_v1';
+    function getCart(){ return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+    function saveCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); renderCart(); }
+
+    function addToCart(id){
+      const prod = productos.find(x=>x.id===id); if(!prod) return;
+      const cart = getCart();
+      const existing = cart.find(i=>i.id===id);
+      if(existing){ existing.cantidad += 1; }
+      else{ cart.push({id:prod.id,nombre:prod.nombre,precio:prod.precio,cantidad:1}); }
+      saveCart(cart);
+    }
+
+    function removeFromCart(id){
+      let cart = getCart(); cart = cart.filter(x=>x.id!==id); saveCart(cart);
+    }
+
+    function changeQty(id,delta){
+      const cart = getCart();
+      const item = cart.find(x=>x.id===id); if(!item) return;
+      item.cantidad += delta; if(item.cantidad<=0) removeFromCart(id); else saveCart(cart);
+    }
+
+    document.addEventListener('click', e=>{
+      if(e.target.matches('button[data-id]')){
+        const id = Number(e.target.dataset.id); addToCart(id);
+      }
+      if(e.target.id==='clearCart'){
+        localStorage.removeItem(CART_KEY); renderCart();
+      }
+      if(e.target.matches('.remove-item')){
+        const id=Number(e.target.dataset.id); removeFromCart(id);
+      }
+      if(e.target.matches('.qty-plus')){
+        changeQty(Number(e.target.dataset.id),1);
+      }
+      if(e.target.matches('.qty-minus')){
+        changeQty(Number(e.target.dataset.id),-1);
+      }
+      if(e.target.id==='checkout'){
+        alert('Gracias por su compra! (Demo)'); localStorage.removeItem(CART_KEY); renderCart();
+      }
+    });
+
+    function renderCart(){
+      const cart = getCart();
+      const list = document.getElementById('cartList'); list.innerHTML='';
+      if(cart.length===0){ list.innerHTML='<div class="empty">No hay productos en el carrito.</div>'; document.getElementById('cartTotal').textContent = formatPrice(0); return; }
+      let total = 0;
+      cart.forEach(item=>{
+        total += item.precio * item.cantidad;
+        const div = document.createElement('div'); div.className='cart-item';
+        div.innerHTML = `
+          <div style="flex:1">
+            <div style="font-weight:600">${item.nombre}</div>
+            <div style="font-size:13px;color:#666">${formatPrice(item.precio)} x ${item.cantidad}</div>
+          </div>
+          <div style="text-align:right">
+            <button class="qty-minus" data-id="${item.id}" style="margin-right:6px">−</button>
+            <button class="qty-plus" data-id="${item.id}" style="margin-right:8px">+</button>
+            <button class="remove-item" data-id="${item.id}">✕</button>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+      document.getElementById('cartTotal').textContent = formatPrice(total);
+    }
+
+    // Inicializar
+    renderCart();
+
+    // Mantener el carrito actualizado si el usuario cambia de pestaña (storage event)
+    window.addEventListener('storage', e => { if(e.key===CART_KEY) renderCart(); });
+  </script>
+</body>
+</html>
+
+
