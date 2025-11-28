@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panadería Delicias del Trigo - Inicio</title>
+
+  <!-- ============================
+       ESTILOS
+  ============================ -->
+  <style>
+    :root {
+      --accent: #c97b2a;
+      --muted: #555;
+    }
+
+    body {
+      font-family: Inter, system-ui, Arial;
+      margin: 0;
+      color: #222;
+      background-image: url("IMG/FONDO_PANADERIA.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+	 
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+	  background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: brightness(0.55);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid #eee;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    a.logo {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .navlinks {
+      margin-left: auto;
+    }
+
+    .navlinks a {
+      margin-left: 14px;
+      text-decoration: none;
+      color: #8B4513;
+    }
+
+    /* =============================
+       HERO
+    ============================= */
+    .hero {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .hero img.main {
+      width: 380px;
+      max-width: 42%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eee;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+
+    /* =============================
+       VIDEOS
+    ============================= */
+    #videos {
+      margin-top: 40px;
+    }
+
+    .video-box {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+	  
+	  display: flex;
+	  justify-content: center; /* centra horizontal */
+	  width: 100%;
+	  
+	  
+    }
+
+    iframe {
+      width: 100%;
+      border-radius: 12px;
+      height: 315px;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(255,255,255,0.9);
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================
+       Creando el Encabezado de la Pagina
+  ============================ -->
+  <header>
+    <div class="container" style="display:flex;align-items:center">
+      <a href="index.html" class="logo">Panadería Delicias del Trigo</a>
+      <nav class="navlinks">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================
+       Colocando el Contenido Pagina Principal
+  ============================ -->
+  <main class="container">
+
+
+    <section class="hero">
+        <div class="card">
+        <h1>Panadería artesanal con productos frescos</h1>
+        <p style="line-height:1.5">
+          En <strong>Delicias del Trigo</strong> elaboramos pan, pasteles y productos de repostería
+          con ingredientes frescos, técnicas tradicionales y amor por lo artesanal.
+        </p>
+        <p><a class="btn" href="productos.html">Ver nuestros productos</a></p>
+      </div>
+
+      <img class="main" src="IMG/PAN.PNG" alt="Panadería artesanal">
+    </section>
+
+
+
+    <!-- TARJETAS -->
+    <section style="margin-top:28px">
+      <div class="card">
+        <h2>Visión</h2>
+        <p>
+          Ser la panadería líder en la región, reconocida por la calidad, frescura e innovación en cada producto,
+          manteniendo un compromiso firme con la tradición y el bienestar de nuestros clientes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Misión</h2>
+        <p>
+          Elaborar productos de panadería y repostería con ingredientes naturales y procesos artesanales, 
+          brindando experiencias de sabor únicas que generen confianza y satisfacción en cada visita.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Objetivos generales</h2>
+        <ul>
+          <li>Ofrecer productos artesanales frescos todos los días, elaborados con estándares de alta calidad.</li>
+          <li>Incorporar alternativas saludables y amigables con el medio ambiente.</li>
+          <li>Innovar en nuevas recetas y técnicas de panadería artesanal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =============================
+         inscrustando videos 
+    ============================= -->
+    <section id="videos">
+	
+      <h2 style="background:white;margin-bottom:20px">Proceso de elaboración</h2>
+    </section>
+
+  </main>
+
+
+<center>
+ <h3 style="background:white;margin-bottom:20px"> para principiantes </h3>
+<P style="background:white;margin-bottom:20px"> Los orígenes de la panadería se remontan a más de 14,000 años con los primeros alimentos a base de cereales silvestres. Los primeros panes planos y sin levadura surgieron en la antigua Mesopotamia alrededor del 6000 a.C.. Los egipcios fueron pioneros en el desarrollo del pan leudado hace unos 4,000 años, lo que dio lugar al pan tal como lo conocemos hoy en día, y los romanos mejoraron las técnicas de molienda y los hornos.  <P>
+
+<a href="https://www.youtube.com/watch?v=JQwKaeffOvE" target="_blank">Ver primer Video en YouTube</a>
+<center>
+
+
+  <!-- ============================
+       PIE DE PÁGINA
+  ============================ -->
+  <footer>
+    © 2025 Panadería Delicias del Trigo — Tradición, sabor y frescura cada día.
+  </footer>
+
+  <!-- =============================
+       Videos en la pagina
+  ============================= -->
+  <script>
+  const videos = [
+    "img/MasaMadre.mp4",
+    "img/pancasero.mp4"
+  ];
+
+  const contenedor = document.getElementById("videos");
+
+  videos.forEach(url => {
+    const div = document.createElement("div");
+    div.className = "video-box";
+
+    div.innerHTML = `
+      <video controls style="max-width:100%;border-radius:10px;">
+        <source src="${url}" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    `;
+
+    contenedor.appendChild(div);
+  });
+</script>
+
+
+
+
+  <!-- =============================
+       Link Videos youtube
+  ============================= -->
+ 
+
+</body>
+</html>
