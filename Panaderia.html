@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panadería Delicias del Trigo - Nuestros Sabores</title>
+  <meta name="description" content="Panadería Delicias del Trigo: control de calidad, reseñas y galería de productos fitness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- ============================
+       ESTILOS
+  ============================ -->
+  <style>
+    :root {
+      --accent: #c97b2a;
+      --muted: #555;
+    }
+
+    body {
+      font-family: Inter, system-ui, Arial;
+      margin: 0;
+      color: #222;
+      background-image: url("IMG/FONDO_PANADERIA.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+	 
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+	  background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: brightness(0.55);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid #eee;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    a.logo {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .navlinks {
+      margin-left: auto;
+    }
+
+    .navlinks a {
+      margin-left: 14px;
+      text-decoration: none;
+      color: #8B4513;
+    }
+
+    /* =============================
+       HERO
+    ============================= */
+    .hero {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .hero img.main {
+      width: 380px;
+      max-width: 42%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eee;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+
+    /* =============================
+       VIDEOS
+    ============================= */
+    #videos {
+      margin-top: 40px;
+    }
+
+    .video-box {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.10);	  
+	  display: flex;
+	  justify-content: center; /* centra horizontal */
+	  width: 100%;
+	  
+	  
+    }
+
+    iframe {
+      width: 100%;
+      border-radius: 12px;
+      height: 315px;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(255,255,255,0.9);
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <div class="container" style="display:flex;align-items:center">
+      <a href="index.html" class="logo">Panadería Delicias del Trigo</a>
+      <nav class="navlinks">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contáctanos</a>
+		<a href="historias.html">Historias</a>
+		<a href="panaderia.html">Nuestros Sabores</a>
+      </nav>
+    </div>
+  </header>
+  
+  <header role="banner">
+    <div class="container">
+      <nav aria-label="Navegación principal">
+      <div class="container" style="display:flex;align-items:center">
+      <a href="index.html" class="logo"></a>
+      <nav class="navlinks">
+        
+          <a href="#nosotros">Nuestros sabores</a>
+          <a href="#productos">Nuestros Productos</a>
+          <a href="#calidad">Calidad</a>
+          
+        </div>
+      </nav>
+
+      <div class="hero" style="margin-top:1.6rem">
+        <div>
+          <h1>Sabores saludables, Tradicionales — hechos con amor.</h1>
+          <p>Somos una panadería artesanal especializada en productos de panaderia con opciones fitness: panes, muffins, tortas y snacks pensados para alimentar con sabor y bienestar.</p>
+          <p style="margin-top:1rem"><a class="btn" href="#productos">Ver productos</a></p>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,.92);">
+          <strong>Nuestra promesa</strong>
+          <p style="margin:.5rem 0 .25rem 0; color:#444;">Ingredientes 100% seleccionados, procesos de des-cross-contaminación y control de calidad en cada tanda.</p>
+          <ul style="margin:.5rem 0 0 1rem;color:var(--muted)">
+            <li>Recetas sin gluten certificadas</li>
+            <li>Opciones bajas en azúcar y sin lactosa</li>
+            <li>Entrega local y pedidos personalizados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="nosotros" class="card" aria-labelledby="nosotros-title" style="margin-bottom:1rem">
+      <h2 id="nosotros-title">Nosotros</h2>
+      <div class="section-intro">
+        <p style="flex:1 1 480px; margin:0">Panadería Delicias del Trigo nace de la necesidad de ofrecer alternativas deliciosas y seguras para quienes requieren o prefieren una dieta con técnicas tradicionales y amor por lo artesanal. Mezclamos tradición panadera con técnicas modernas para lograr texturas y sabores excepcionales.</p>
+              </div>
+    </section>
+
+    
+    <section id="productos" class="card" style="margin-bottom:1rem">
+      <h2>Nuestros Productos (reseña)</h2>
+      <div class="grid-3" style="margin-top:.5rem">
+        <article class="card" aria-labelledby="p1">
+          <h3 id="p1">Pan rústico sin gluten</h3>
+          <p style="margin:.25rem 0;color:var(--muted)">Pan artesanal fermentado, corteza crujiente y miga suave — ideal para sándwiches o tostadas.</p>
+          <img src="img/panintegral.jpg">
+        </article>
+
+        <article class="card" aria-labelledby="p2">
+          <h3 id="p2">Muffins fitness</h3>
+          <p style="margin:.25rem 0;color:var(--muted)">Muffins integrales sin gluten con avena, plátano y proteína vegetal.</p>
+          <img src="img/Muffins.jpg">
+        </article>
+
+        <article class="card" aria-labelledby="p3">
+          <h3 id="p3">Torta de almendra</h3>
+          <p style="margin:.25rem 0;color:var(--muted)">Torta esponjosa con harina de almendra y relleno ligero de frutas.</p>
+          <img src="img/almendras.jpg">
+        </article>
+      </div>
+    </section>
+
+    <section id="calidad" class="card" style="margin-bottom:1rem">
+      <h2>Control de Calidad y Reseñas</h2>
+      <p style="margin-top:0;color:var(--muted)">Trabajamos con prácticas de cross-check, trazabilidad de lotes y proveedores certificados.</p>
+
+      <div style="margin-top:1rem">
+        <h3 style="margin-bottom:.5rem">Reseñas de clientes</h3>
+        <div class="reviews">
+          <div class="review card">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Avatar cliente 1"></div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>María G.</strong>
+                <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
+              </div>
+              <p style="margin:.4rem 0 0 0;color:var(--muted)">"Deliciosos y seguros para mi dieta. La textura del pan me sorprendió."</p>
+            </div>
+          </div>
+
+          <div class="review card">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1545996124-1f4a0f7c9f2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Avatar cliente 2"></div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Carlos R.</strong>
+                <div class="stars" aria-label="Cuatro estrellas">★★★★☆</div>
+              </div>
+              <p style="margin:.4rem 0 0 0;color:var(--muted)">"Muy buen servicio y las opciones fitness son geniales para mis entrenamientos."</p>
+            </div>
+          </div>
+
+          <div class="review card">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Avatar cliente 3"></div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ana P.</strong>
+                <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
+              </div>
+              <p style="margin:.4rem 0 0 0;color:var(--muted)">"La torta de almendra fue un éxito en la reunión. Sabor y textura perfectos."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="card" style="margin-bottom:1rem">
+      <h2>Galería</h2>
+      <div class="gallery" aria-hidden="false">
+        <img src="https://www.elespectador.com/resizer/v2/LKNFERZBIRDTNKHUZNO2OFZJDI.jpg?auth=2ab7366f10bda466dab747c6fe5ced276b2412ef9cfdfacd119b17e1c0f174ac&width=920&height=613&smart=true&quality=60" alt="Torta de Naranja">
+        <img src="https://www.sortirambnens.com/wp-content/uploads/2020/03/pastis-de-canyella.png" alt="Rollos de Canela">
+        <img src="https://recetasdecocina.elmundo.es/wp-content/uploads/2024/06/milhojas-de-crema-pastelera-receta-1024x683.jpg" alt="milhojas">
+        <img src="https://panpillon.com/wp-content/uploads/2021/12/Roscon-Colombiano-PanPillon-037.jpg.webp" alt="Roscones">
+      </div>
+    </section>
+
+   
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+	<br>
+	<br>
+      <a href="index.html">Volver a inicio</a>     
+	  <br>
+	  <br>
+    </div>
+  </footer>
+  
+  
+  
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>© <strong>Panadería Delicias del Trigo</strong> — Todos los derechos reservados</div>
+      <div style="color:var(--muted)">Hecho con cariño · Ingredientes seleccionados</div>
+    </div>
+  </footer>
+  
+
+  
+</body>
+</html>

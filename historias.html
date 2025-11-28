@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panadería Delicias del Trigo - Historias</title>
+
+  <style>
+    :root{
+      --accent:#c97b2a;
+      --card-bg: rgba(255,255,255,0.92);
+      --muted:#555;
+    }
+
+    /* Fondo principal (igual que tu original) */
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      color:#222;
+      background-image: url("IMG/FONDO_PANADERIA.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    /* ligera capa para mejorar legibilidad sobre el fondo */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background: rgba(255,255,255,0.55);
+      z-index:-1;
+      backdrop-filter: brightness(0.9);
+    }
+
+    header{
+      background: rgba(255,255,255,0.9);
+      border-bottom:1px solid #eee;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:20px;
+    }
+
+    a.logo{ font-weight:700; color:var(--accent); text-decoration:none; font-size:22px }
+    nav{ display:flex; gap:14px; align-items:center }
+    .navlinks{ margin-left:auto }
+    .navlinks a{ margin-left:14px; text-decoration:none; color:#8B4513; }
+
+    h1{ font-size:28px; margin:0 0 8px; }
+    p.lead{ line-height:1.5; margin:0; }
+
+    /* area de historias (carrusel) */
+    .stories-wrap{
+      margin-top:30px;
+      position:relative;
+    }
+
+    .stories{
+      display:flex;
+      gap:18px;
+      overflow:hidden;
+      scroll-behavior:smooth;
+      padding:10px 4px;
+    }
+
+    .story {
+      min-width: 320px;
+      max-width: 520px;
+      flex: 0 0 80%;
+      background: var(--card-bg);
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.08);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
+    }
+
+    /* dentro de cada historia: imagen y área de video */
+    .story .media {
+      position:relative;
+      border-radius:10px;
+      overflow:hidden;
+      display:block;
+    }
+
+    .story img {
+      width:100%;
+      display:block;
+      object-fit:cover;
+      height:220px;
+    }
+
+    .story .caption{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .story h3{ margin:0; color:#8B4513; }
+
+    .controls {
+      display:flex;
+      gap:8px;
+      margin-top:auto;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:8px;
+      text-decoration:none;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .icon-btn{
+      background:rgba(0,0,0,0.06);
+      color:#333;
+      border-radius:8px;
+      border:none;
+      padding:8px;
+      cursor:pointer;
+    }
+
+    /* overlay play */
+    .play-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .play-overlay button{
+      pointer-events:auto;
+      background:rgba(0,0,0,0.5);
+      border:0;
+      color:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* flechas para mover carrusel */
+    .nav-arrows{
+      position:absolute;
+      top:50%;
+      left:0;
+      right:0;
+      transform:translateY(-50%);
+      display:flex;
+      justify-content:space-between;
+      pointer-events:none;
+      padding:0 6px;
+    }
+    .nav-arrows button{
+      pointer-events:auto;
+      background:rgba(255,255,255,0.9);
+      border-radius:8px;
+      border:1px solid #eee;
+      padding:8px;
+      cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    /* responsive */
+    @media(min-width:900px){
+      .story{ flex:0 0 45%; }
+    }
+
+    footer{
+      padding:24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      background: rgba(255,255,255,0.9);
+      margin-top:40px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center">
+      <a href="index.html" class="logo">Panadería Delicias del Trigo</a>
+      <nav class="navlinks">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contáctanos</a>
+		<a href="historias.html">Historias</a>
+		<a href="panaderia.html">Nuestros Sabores</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section style="display:flex;gap:20px;align-items:center;padding:22px 0">
+      <div style="flex:1">
+        <h1>Historias del Trigo y la Panadería</h1>
+        <p class="lead">Cinco relatos breves que combinan texto, imágenes y videos para hacer la lectura más agradable e informativa.</p>
+      </div>
+      <img src="IMG/PAN.PNG" alt="pan" style="width:160px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.12)">
+    </section>
+
+    <!-- Carrusel de historias -->
+    <section class="stories-wrap">
+      <div class="nav-arrows">
+        <button id="prevBtn" aria-label="Anterior">&larr;</button>
+        <button id="nextBtn" aria-label="Siguiente">&rarr;</button>
+      </div>
+
+      <div id="stories" class="stories" tabindex="0" aria-label="Historias sobre el trigo y la panadería">
+        <!-- Stories se generan por JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Panadería Delicias del Trigo — Tradición, sabor y frescura cada día.
+  </footer>
+
+  <script>
+    // --- Datos de las historias: edítalos según tus imágenes/videos ---
+    const historias = [
+      {
+        title: "El origen del trigo",
+        text: "El trigo fue una de las primeras plantas domesticadas por comunidades humanas. Su cultivo permitió el asentamiento y el desarrollo de la agricultura.",
+        image: "IMG/story1.jpg",
+        video: "IMG/story1.mp4" // puede ser null si no tienes video
+      },
+      {
+        title: "Primeros panes planos",
+        text: "Los panes planos fueron de las primeras formas de pan en muchas culturas: sencillos, nutritivos y fáciles de preparar sobre piedras calientes.",
+        image: "IMG/story2.jpg",
+        video: null
+      },
+      {
+        title: "La levadura y el pan leudado",
+        text: "Los egipcios descubrieron la fermentación, dando lugar al pan leudado. Este avance cambió la textura y el sabor para siempre.",
+        image: "IMG/story3.jpg",
+        video: "IMG/story3.mp4"
+      },
+      {
+        title: "Molinos y molienda",
+        text: "Con el tiempo se inventaron molinos y mecanismos para moler el trigo más eficientemente, mejorando la calidad de la harina.",
+        image: "IMG/story4.jpg",
+        video: null
+      },
+      {
+        title: "Nacimiento de las panaderías",
+        text: "Las panaderías como lugares especializados surgieron cuando la técnica y la demanda se hicieron constantes, creando comunidades en torno al pan.",
+        image: "IMG/story5.jpg",
+        video: "IMG/story5.mp4"
+      }
+    ];
+
+    const contenedor = document.getElementById('stories');
+
+    // función que crea la tarjeta (sin insertar el <video> para evitar inicialización)
+    function crearStoryCard(h, index){
+      const s = document.createElement('article');
+      s.className = 'story';
+      s.setAttribute('data-index', index);
+
+      // estructura básica
+      s.innerHTML = `
+        <div class="media">
+          <img src="${h.image}" alt="${h.title}">
+          ${h.video ? `<div class="play-overlay"><button class="load-video" aria-label="Reproducir video" data-video="${h.video}">Reproducir ▶</button></div>` : ''}
+        </div>
+        <div>
+          <h3>${h.title}</h3>
+          <p class="caption">${h.text}</p>
+        </div>
+        <div class="controls">
+          <small>Historia ${index + 1} de ${historias.length}</small>
+          <div>
+            ${h.video ? `<button class="btn load-video" data-video="${h.video}">Reproducir video</button>` : ''}
+            <a class="icon-btn" href="#" data-index="${index}" onclick="return false;">Leer más</a>
+          </div>
+        </div>
+      `;
+      return s;
+    }
+
+    // construir todas las tarjetas
+    historias.forEach((h, i) => {
+      contenedor.appendChild(crearStoryCard(h,i));
+    });
+
+    // Navegación del carrusel
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    prevBtn.addEventListener('click', () => {
+      // desplazar izquierda el ancho de un elemento visible
+      contenedor.scrollBy({left: -Math.round(contenedor.clientWidth * 0.8), behavior:'smooth'});
+    });
+    nextBtn.addEventListener('click', () => {
+      contenedor.scrollBy({left: Math.round(contenedor.clientWidth * 0.8), behavior:'smooth'});
+    });
+
+    // Carga el video sólo cuando el usuario hace click en "Reproducir"
+    // Esto previene que los videos se inicialicen sin play.
+    function insertarVideo(targetButton, videoSrc){
+      // localizar el contenedor .media más cercano
+      const card = targetButton.closest('.story');
+      const media = card.querySelector('.media');
+
+      // si ya hay un video, no volver a insertar
+      if(media.querySelector('video')) {
+        // si hay video, hacer que haga focus
+        media.querySelector('video').focus();
+        return;
+      }
+
+      // reemplazar la imagen por un contenedor con poster y video (poster mantiene la apariencia)
+      const img = media.querySelector('img');
+      const posterSrc = img ? img.src : '';
+
+      // crear video element (no autoplay)
+      const videoEl = document.createElement('video');
+      videoEl.controls = true;
+      videoEl.setAttribute('playsinline', '');
+      videoEl.style.width = '100%';
+      videoEl.style.borderRadius = '0';
+      videoEl.innerHTML = `<source src="${videoSrc}" type="video/mp4">Tu navegador no soporta video HTML5.`;
+
+      // reemplazamos el contenido de media: dejamos poster (imagen) encima y añadimos video oculto hasta que el usuario pulse play
+      // Para mejor UX insertamos el video después de la imagen so that browser doesn't preload source automatically.
+      media.appendChild(videoEl);
+
+      // Scroll suave para asegurarnos que el usuario vea el video creado
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    // delegación de eventos para botones de "load-video"
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.load-video');
+      if(!btn) return;
+      const videoSrc = btn.getAttribute('data-video');
+      if(videoSrc){
+        insertarVideo(btn, videoSrc);
+      }
+    });
+
+    // ACCESSIBILITY: activar navegación con teclado flechas izquierda/derecha
+    contenedor.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight') nextBtn.click();
+      if(e.key === 'ArrowLeft') prevBtn.click();
+    });
+
+    // Mejoras: evitar carga previa de vídeos por parte del navegador
+    // (al usar insertVideo sólo al hacer click, no añadimos <source> en el DOM hasta que se pide)
+  </script>
+</body>
+</html>
